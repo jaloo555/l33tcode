@@ -23,5 +23,5 @@ d. Smallest Rectangles Enclosing Black Pixels
 a. Valid Sudoku
 
 Solutions: 
-1. Closest BST (LC 270)
-2. 
+1. Closest BST (LC 270) - O(lg n)
+2. Letter Combinations of a Phone Number (LC 17) - O(4**N * N)
