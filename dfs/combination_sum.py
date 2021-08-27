@@ -4,22 +4,25 @@ class Solution:
             return []
         
         res = []
-        def helper(candidates, target, currSum, curr, start):
+        def helper(remain, first, curr):
             nonlocal res
             
-            if currSum == target:
-                res.append(list(curr))
-                return 
-            elif currSum > target:
+            # Base case
+            if remain == 0:
+                res.append(curr[:])
                 return
-                
-            # Limiting to start -> len is to remove precedent numbers that have already been explored
-            for i in range(start, len(candidates)):
+            elif remain < 0:
+                return
+            
+            # Traverse - First limits the search to exclude precedent number, i to give repeat current selection
+            for i in range(first, len(candidates)):
                 curr.append(candidates[i])
-                helper(candidates, target, currSum + candidates[i], curr, i)
+                # Backtrack
+                helper(remain - candidates[i], i, curr)
                 curr.pop()
+            return
         
-        helper(candidates, target, 0, [], 0)
+        helper(target, 0, [])
         
         
         return res
