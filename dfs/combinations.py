@@ -8,8 +8,7 @@ class Solution:
                 res.append(curr[:])
                 return
             
-            for i in range(first, n+1):
-                
+            for i in range(first, n+1): 
                 curr.append(i)
                 helper(i+1, curr)
                 curr.pop()
